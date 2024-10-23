@@ -13,5 +13,7 @@ Currently, two official plugins are available:
 
 - create a Vite + React application
 - Remove unnecessary Code and create a Hello World app
-
+- Install Tailwind Css
+- Install Daisy Ui
+- Add Navbar componenet to App.jsx
 
