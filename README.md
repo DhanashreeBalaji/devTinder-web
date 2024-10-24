@@ -16,4 +16,28 @@ Currently, two official plugins are available:
 - Install Tailwind Css
 - Install Daisy Ui
 - Add Navbar componenet to App.jsx
+- Install React Router Dom
+- Create browserRouter > Routes> Route = /Body> Route Children
+- Create an Outlet in your body componenet
+- Create a footer
+- Create a Login page
+- Install axios
+- CORS = install cors in backend => add middleware to with configurations: origin, credentials: true
+- Whenever you are making API call so pass => { woithCredentials : true {}}
+- Install Redux Toolkit - Check documentation https://redux-toolkit.js.org/tutorials/quick-start
+-Install react-redux + @redux/toolkit
+- configureStore => Provider => createSlice => add reducer to store
+- Now we are safe to add data to the redux store
+- Add Redux Dev tolls in Chrome
+- Login and see if data is reflecting properly in the store
+- Navbar should update as soon as user logs in
+- Refactor our code to add constants file 
+
+
+Body
+   NavBar
+   Route=/  => Feed
+   Route=/login  => login
+   Route=/comnnections => Connections
+   Route=/profile => Profile
 
