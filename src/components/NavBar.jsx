@@ -1,10 +1,28 @@
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
+import { removeUser } from "../utils/userSlice";
 
 const NavBar = () => {
 
-//  If the user is logged in, show the photo of the user, for that subscribe to the store
+//  If the user is logged in, show the photo of the user, for that subscribe to the store user.
 const user = useSelector((store) => store.user);
 console.log("Subscribed" + user);
+
+const navigate = useNavigate();
+const dispatch = useDispatch();
+
+const handleLogout = async() => {
+  try{
+    const res = await axios.post(BASE_URL + "/logout", {}, {withCredentials: true});
+    dispatch(removeUser());
+    return navigate("/login");
+  } catch(err){
+  //  Error logic redirect to error page
+  }
+
+}
 
   return (
     <>
@@ -36,7 +54,12 @@ console.log("Subscribed" + user);
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li>
+        <a
+        onClick={() => handleLogout()}>
+             Logout
+        </a>
+        </li>
       </ul>
     </div>
       )}

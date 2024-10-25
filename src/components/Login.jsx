@@ -10,6 +10,7 @@ const Login = () => {
 
   const [emailId, setEmailId] =  useState("viratkholi@gmail.com");
   const [password,setPassword] = useState("viraT@123");
+  const[error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,9 +32,10 @@ const Login = () => {
          return navigate("/");
 
     } catch(err){
-      console.error(err);
+      setError(err?.response?.data || "Something went wrong");
+      console.error (err.message);
     }
-  }
+  };
 
   return (
     <div className='flex justify-center my-10'>
@@ -67,6 +69,7 @@ const Login = () => {
   
 </label>
    </div>
+   <p className='text-red-500 text-bold' > {error} </p>
     <div className="card-actions justify-center">
       <button className="btn btn-secondary"
       onClick={() => handleLogin()}

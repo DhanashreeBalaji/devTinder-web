@@ -32,6 +32,9 @@ Currently, two official plugins are available:
 - Login and see if data is reflecting properly in the store
 - Navbar should update as soon as user logs in
 - Refactor our code to add constants file 
+- You should not br able to access other routes without login
+- If token not present redirect user to login page
+- Logout Feature, show dynamic error in login Ui
 
 
 Body
