@@ -24,13 +24,13 @@ const Body = () => {
         });
         dispatch(adduser(res.data));
       } catch(err){
-        if(err.status === 401)
+        if (err.status === 401)
          {
             navigate("/login");
          }       
           else{
-          console.log(err);
-          // navigate("/error")
+            console.log(err);
+            navigate("/login")
           }
       }
 

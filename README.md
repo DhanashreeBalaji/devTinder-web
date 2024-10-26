@@ -35,6 +35,8 @@ Currently, two official plugins are available:
 - You should not br able to access other routes without login
 - If token not present redirect user to login page
 - Logout Feature, show dynamic error in login Ui
+ - Get the feed and add the feed in the store
+ - build the user card on feed
 
 
 Body
