@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../utils/userSlice";
-import { removeFeed } from "../utils/feedSlice";
+
 
 const NavBar = () => {
 
@@ -18,7 +18,7 @@ const handleLogout = async() => {
   try{
     const res = await axios.post(BASE_URL + "/logout", {}, {withCredentials: true});
     dispatch(removeUser());
-    dispatch(removeFeed());
+
     return navigate("/login");
   } catch(err){
   //  Error logic redirect to error page

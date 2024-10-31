@@ -26,7 +26,7 @@ const Login = () => {
           {withCredentials: true}
           // withCrendentials has to passed from frontend when you use axios, only then token is send back to BE for other api calls 
          );
-         console.log(res);
+         
         //   Adding the details of the loggingIn user to the store which came from backend API Call, and redirect to main page
          dispatch(adduser(res.data));
          return navigate("/");
