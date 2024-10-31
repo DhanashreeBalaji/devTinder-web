@@ -27,12 +27,15 @@ useEffect(() => {
 }, []);
 
   return (
-    
-   feed && (
+    feed &&
+   feed.length !== 0 ? (
     <div className = "flex justify-enter my-10">
       <UserCard user= {feed[0]} />
     </div>
+   ) : (
+    <h1>No feed for you</h1>
    )
+   
     
   )
 }

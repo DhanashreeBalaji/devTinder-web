@@ -36,7 +36,15 @@ Currently, two official plugins are available:
 - If token not present redirect user to login page
 - Logout Feature, show dynamic error in login Ui
  - Get the feed and add the feed in the store
- - build the user card on feed
+ - Build the user card on feed
+ - Edit Profile Feature added
+ - Show Toast Message on save of the profile after editing
+ - New Page - To see all the connections (matches)
+ - New Page - to see all the incoming connection requests
+ - Feature - to Accept/ Reject connection request
+ - Send / Ignore the user card from Feed
+ 
+
 
 
 Body
