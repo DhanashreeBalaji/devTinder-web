@@ -43,7 +43,8 @@ Currently, two official plugins are available:
  - New Page - to see all the incoming connection requests
  - Feature - to Accept/ Reject connection request
  - Send / Ignore the user card from Feed
- 
+ - SignUp New User from UI
+ - End to End Testing
 
 
 

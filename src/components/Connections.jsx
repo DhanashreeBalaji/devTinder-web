@@ -13,9 +13,9 @@ const Connections = () => {
     try{
      const res = await axios.get(
      BASE_URL + "/user/connections", 
-     { withCredentials: true } 
+     { withCredentials: true },
    );
-    // console.log(res);
+      console.log(res);
       dispatch(addConnections(res.data.data));
 
     } catch(err){
@@ -31,7 +31,7 @@ const Connections = () => {
     return;
   }
 
-  if(connections.length === 0) return <h1>You have no connections</h1>
+  if(connections.length === 0) return <h1>You have no connections</h1>;
 
 return (
     <div className=''>

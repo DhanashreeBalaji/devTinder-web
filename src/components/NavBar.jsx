@@ -4,13 +4,12 @@ import { BASE_URL } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../utils/userSlice";
 
+import { clearFeed } from "../utils/feedSlice";
 
 const NavBar = () => {
 
 //  If the user is logged in, show the photo of the user, for that subscribe to the store user.
 const user = useSelector((store) => store.user);
-console.log("Subscribed" + user);
-
 const navigate = useNavigate();
 const dispatch = useDispatch();
 
@@ -18,7 +17,7 @@ const handleLogout = async() => {
   try{
     const res = await axios.post(BASE_URL + "/logout", {}, {withCredentials: true});
     dispatch(removeUser());
-
+    dispatch(clearFeed())
     return navigate("/login");
   } catch(err){
   //  Error logic redirect to error page
@@ -30,7 +29,8 @@ const handleLogout = async() => {
     <>
         <div className="navbar bg-base-200">
   <div className="flex-1">
-    <Link to="/" className="btn btn-ghost text-xl"> 👩🏻‍💻 Dev Tinder</Link>
+    <Link to={user && "/" } 
+    className="btn btn-ghost text-xl"> 👩🏻‍💻 Dev Tinder</Link>
   </div>
   <div className="flex-none gap-2">
     <div className="form-control">
