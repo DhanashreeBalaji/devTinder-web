@@ -4,7 +4,7 @@ import Footer from "./Footer"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { BASE_URL } from "../utils/constants"
-import { adduser } from "../utils/userSlice"
+import { addUser } from "../utils/userSlice"
 import axios from "axios"
 
 
@@ -22,7 +22,7 @@ const Body = () => {
         const res = await axios.get(BASE_URL + "/profile/view", {
           withCredentials: true,
         });
-        dispatch(adduser(res.data));
+        dispatch(addUser(res.data));
       } catch(err){
         if (err.status === 401)
          {

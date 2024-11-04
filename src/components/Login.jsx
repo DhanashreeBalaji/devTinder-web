@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
-import { adduser } from '../utils/userSlice';
+import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constants'
 
 
 const Login = () => {
 
-  const [emailId, setEmailId] =  useState("@gmail.com");
-  const [password,setPassword] = useState("@123");
+  const [emailId, setEmailId] =  useState("");
+  const [password,setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const[isloginForm, setLoginForm] = useState(true);
+  const [isloginForm, setLoginForm] = useState(true);
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,12 +31,11 @@ const Login = () => {
          );
          
         //   Adding the details of the loggingIn user to the store which came from backend API Call, and redirect to main page
-         dispatch(adduser(res.data));
+         dispatch(addUser(res.data));
          return navigate("/");
 
     } catch(err){
-      setError(err?.response?.data || "Something went wrong");
-      console.error (err.message);
+      setError(err?.response?.data || err?.message || "Something went wrong");
     }
   };
 
@@ -47,7 +46,6 @@ const Login = () => {
             {firstName,lastName,emailId,password},
             {withCredentials:true}   
          );
-         console.log(res)
         //  lOGGING IN THE USER WHILE HE SIGNS UP
          dispatch(adduser(res.data.data))
          navigate("/")
@@ -110,7 +108,7 @@ const Login = () => {
   <div className="label">
     <span className="label-text">Password</span>
   </div>
-   <input type="text" 
+   <input type="password" 
    placeholder="Type here" 
    className="input input-bordered w-full max-w-xs" 
     value = {password}
@@ -120,7 +118,9 @@ const Login = () => {
 
    </div>
 
+  
    <p className='text-red-500 text-bold' > {error} </p>
+
     <div className="card-actions justify-center">
       <button className="btn btn-secondary"
       onClick={() => isloginForm ? handleLogin() : handleSignUp()}

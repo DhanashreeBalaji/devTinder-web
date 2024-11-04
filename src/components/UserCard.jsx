@@ -2,10 +2,12 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { removeUserFromFeed } from "../utils/feedSlice";
+import { useNavigate } from "react-router-dom";
 
 const UserCard = ({ user }) => {
-    const { _id,firstName, lastName, photoUrl, age, gender, about } = user;
+    const { _id, firstName, lastName, photoUrl, age, gender, about } = user;
      const dispatch = useDispatch();
+     const navigate = useNavigate();
 
      const handleSendRequest = async(status) => {
        try{
@@ -14,13 +16,13 @@ const UserCard = ({ user }) => {
               {},
               {withCredentials:true},
             );
-            console.log(res);
             dispatch(removeUserFromFeed(user._id));
 
        } catch(err){
-
+           navigate("/error");
+           console.error (err.message);
        }
-     }
+     };
 
 
     return (

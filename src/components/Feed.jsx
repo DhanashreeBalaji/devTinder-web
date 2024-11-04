@@ -4,11 +4,13 @@ import axios from "axios";
 import {addFeed} from "../utils/feedSlice";
 import {BASE_URL} from "../utils/constants";
 import UserCard from "./UserCard";
+import { useNavigate } from "react-router-dom";
 
 const Feed = () => {
   
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getFeed = async () => {
     if(feed) return;
@@ -20,6 +22,7 @@ const Feed = () => {
       dispatch(addFeed(res?.data?.data));
     } catch(err){
       console.log(err?.response?.data);
+      navigate("/error");
     }
   };
 useEffect(() => {
