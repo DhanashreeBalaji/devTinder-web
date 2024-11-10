@@ -17,7 +17,9 @@ const handleLogout = async() => {
   try{
     const res = await axios.post(BASE_URL + "/logout", {}, {withCredentials: true});
     dispatch(removeUser());
-    dispatch(clearFeed())
+    dispatch(clearFeed());
+    localStorage.removeItem("user")
+    localStorage.removeItem("token")
     return navigate("/login");
   } catch(err){
   //  Error logic redirect to error page

@@ -13,7 +13,7 @@ const feedSlice = createSlice({
            return newArray;
         },
         clearFeed: (state,action) => {
-            return null;
+            state = null;
         }
     },
 });
